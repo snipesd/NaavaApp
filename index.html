@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<title>Untitled</title>
+<script type="text/javascript" src="lib/dojo/dojo/dojo.js" data-dojo-config="'parseOnLoad':true,'async':true,'packages':[{'name':'gridx','location':'../gridx'},{'name':'clipart','location':'../../clipart'},{'name':'maqettaSamples','location':'../../../samples'},{'name':'maqetta','location':'../../maqetta'},{'name':'shapes','location':'../../shapes'},{'name':'zazl','location':'../../zazl'},{'name':'widgets','location':'../../custom'},{'name':'pics','location':'http://localhost:50000/maqetta/user/A/ws/workspace/project1/lib/custom/pics'}],'themeMap':[['Android','',['themes/android/android.css']],['BlackBerry','',['themes/blackberry/blackberry.css']],['iPad','',['themes/ipad/ipad.css']],['iPhone','',['themes/iphone/iphone.css']],['.*','',['themes/iphone/iphone.css']]],'mblThemeFiles':[],'mblLoadCompatPattern':''"></script>
+<script type="text/javascript">
+require([
+  "dijit/dijit",
+  "dojo/parser",
+  "maqetta/space",
+  "maqetta/AppStates",
+  "dojox/mobile",
+  "dojox/mobile/deviceTheme",
+  "dojo/hash",
+  "dojox/mobile/ScrollableView",
+  "clipart/ProfilePicture",
+  "dojox/mobile/TextBox",
+  "dojox/mobile/TabBar",
+  "dojox/mobile/TabBarButton",
+  "dojox/mobile/Accordion",
+  "dojox/mobile/ContentPane",
+  "dojox/io/xhrScriptPlugin",
+  "dojo/data/ItemFileReadStore",
+  "dojox/mobile/RoundRectDataList",
+  "dojox/mobile/IconItem",
+  "dojox/mobile/IconContainer",
+  "dijit/form/DataList",
+  "dojox/mobile/ComboBox",
+  "dojox/mobile/DatePicker",
+  "dojox/mobile/SpinWheelDatePicker",
+  "dojox/mobile/TimePicker",
+  "dojox/mobile/ValuePickerDatePicker",
+  "dojox/mobile/ValuePickerTimePicker",
+  "dojox/mobile/IconMenu",
+  "dojox/mobile/IconMenuItem",
+  "dojox/mobile/EdgeToEdgeDataList",
+  "dojox/mobile/Container"
+]);
+</script>
+<style>@import "themes/claro/claro.css";@import "lib/dojo/dojox/mobile/themes/common/domButtons/DomButtonRedBadge.css";@import "app.css";
+</style>
+<script type="text/javascript" src="app.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"></meta>
+</head>
+<body data-maq-device="android_480x800" data-maq-flow-layout="true" data-maq-comptype="mobile" class="claro" data-maq-ws="collapse" data-maq-appstates="{}" id="myapp">
+ <div data-dojo-type="dojox/mobile/View" id="mainView" style="height: 100%;">
+<div style="width: 100%; position: relative; top: 10%;">
+ <img src="lib/custom/pics/naavaLogo.jpg" style="margin-right: auto; margin-left: auto; position: relative; width: 100%; height: 200px; top: 30%;"></img>
+</div>
+<ul data-dojo-type="dojox/mobile/RoundRectList" select="single" style="border: none; top: 40%;" class="mainViewClass">
+  <li data-dojo-type="dojox/mobile/ListItem" moveTo="userLoginView" style="text-align: center;" rightIcon="mblDomButtonArrow">
+    <label class="mblListItemLabel">
+      LOG IN</label>
+  </li>
+  <li data-dojo-type="dojox/mobile/ListItem" moveTo="userSignUpView" rightIcon="mblDomButtonArrow" style="border-bottom: none; text-align: center;">
+    <label class="mblListItemLabel">
+      SIGN UP</label>
+  </li>
+  <li data-dojo-type="dojox/mobile/ListItem" style="border: none;">
+    <label class="mblListItemLabel"></label>
+  </li>
+  <li data-dojo-type="dojox/mobile/ListItem" moveTo="providerSignUpView" rightIcon="mblDomButtonArrow" style="text-align: center;">
+    
+  PROVIDER SIGN UP</li>
+</ul>
+<img></img>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="userLoginView" style="height: 100%;">
+   <h1 label="Naava" data-dojo-type="dojox/mobile/Heading">
+     <div label="Back" data-dojo-type="dojox/mobile/ToolBarButton" icon="profile-icon_282.png" moveTo="mainView" arrow="left"></div>
+   </h1>
+   <form style="position: relative; top: 10%; height: 500;">
+     <input placeholder="Username" required="true" style="width: 100%; height: 35px; position: relative;"></input>
+     <input placeholder="Password" required="true" type="password" style="width: 100%; height: 35px; position: relative; top: 20;"></input>
+     <ul data-dojo-type="dojox/mobile/RoundRectList" style="top: 150px; left: 5%;" class="userLoginClass">
+       <li data-dojo-type="dojox/mobile/ListItem" moveTo="userHomepage" noArrow="true" style="text-align: center;">
+         <label class="mblListItemLabel">
+           LOG IN</label>
+       </li>
+     </ul>
+   </form>
+   <ul data-dojo-type="dojox/mobile/RoundRectList"></ul>
+ </div>
+ <div data-dojo-type="dojox/mobile/View" id="userSignUpView" style="height: 100%;"></div>
+ <div data-dojo-type="dojox/mobile/View" id="providerSignUpView" style="height: 100%;"></div>
+ <div data-dojo-type="dojox/mobile/View" id="userHomepage" style="height: 100%;">
+  <h1 label="Naava" data-dojo-type="dojox/mobile/Heading">
+   <div label="Log Out" data-dojo-type="dojox/mobile/ToolBarButton" moveTo="mainView" back="false" arrow="left"></div>
+   <div label="Edit" data-dojo-type="dojox/mobile/ToolBarButton" style="float: right;"></div>
+ </h1>
+  <ul data-dojo-type="dojox/mobile/TabBar" style="height: 96.99998214355469px;">
+<span></span>
+<li label="Profile" data-dojo-type="dojox/mobile/TabBarButton" icon1="lib/custom/pics/profile-icon-282.png" icon2="lib/custom/pics/profile-icon-282.png" moveTo="userHomepage" selected="true" style="margin: 0px; width: 100%;"></li>
+<li label="Book" data-dojo-type="dojox/mobile/TabBarButton" icon1="lib/custom/pics/schedule-icon-35780.png" icon2="lib/custom/pics/schedule-icon-35780.jpg" moveTo="luxForLessView"></li>
+<li label="Appointments" data-dojo-type="dojox/mobile/TabBarButton" icon1="lib/custom/pics/history-icon-png-4677.png" icon2="history-icon-png-4677.png" moveTo="confirmedApptView" badge="2"></li>
+</ul>
+  <h2>
+    Username: anguyen<br></br>Naava Points: &#10104<br></br> <br></br>Default region: Toronto, ON<hr></hr></h2></h2>
+  <div label="Saved Payment Options:" data-dojo-type="dojox/mobile/RoundRectCategory"></div>
+  <ul data-dojo-type="dojox/mobile/RoundRectList">
+  <li data-dojo-type="dojox/mobile/ListItem" rightText="default" selected="true" header="false" anchorLabel="false">
+      <label class="mblListItemLabel">
+        AMEX - 1004</label>
+    </li>
+    <li data-dojo-type="dojox/mobile/ListItem">
+      <label class="mblListItemLabel">
+        Visa - 2930</label>
+    </li>
+  </ul>
+  <h2>
+<hr></hr>
+  </h2>
+  <ul data-dojo-type="dojox/mobile/RoundRectList">
+    <li data-dojo-type="dojox/mobile/ListItem" header="true">
+      <label class="mblListItemLabel">
+        Review past appointments</label>
+    </li>
+    <li data-dojo-type="dojox/mobile/ListItem">
+      <label class="mblListItemLabel">
+        L'Attitudes &gt; Nails  @ 06/03/17</label>
+    </li>
+    <li data-dojo-type="dojox/mobile/ListItem">
+      <label class="mblListItemLabel">
+        Salon de Livre &gt; Hair @ 06/09/17</label>
+    </li>
+    <li data-dojo-type="dojox/mobile/ListItem">
+      <label class="mblListItemLabel">
+        L'Attitudes &gt; Nails @ 05/20/17</label>
+    </li>
+    <li data-dojo-type="dojox/mobile/ListItem">
+      <label class="mblListItemLabel">
+        L'Attidues &gt; Nails @ 05/10/17</label>
+    </li>
+    <li data-dojo-type="dojox/mobile/ListItem">
+      <label class="mblListItemLabel">
+        Salon de Livre &gt; Hair @ 05/03/17</label>
+    </li>
+  </ul>
+</h2></div>
+ <div data-dojo-type="dojox/mobile/View" id="confirmedApptView" style="height: 100%;">
+  <h1 label="Confirmed Appointments" data-dojo-type="dojox/mobile/Heading">
+ <div label="Back" data-dojo-type="dojox/mobile/ToolBarButton" arrow="left" moveTo="userHomepage"></div>
+ </h1>
+  <div label="July 23, 2017" data-dojo-type="dojox/mobile/EdgeToEdgeCategory"></div>
+  <ul data-dojo-type="dojox/mobile/EdgeToEdgeList">
+  <li data-dojo-type="dojox/mobile/ListItem">
+      <label class="mblListItemLabel">
+        Salon de Livre &gt; Hair @ 15:30</label>
+    </li>
+  </ul>
+  <div label="July 26, 2017" data-dojo-type="dojox/mobile/EdgeToEdgeCategory"></div>
+  <ul data-dojo-type="dojox/mobile/EdgeToEdgeList">
+    <li data-dojo-type="dojox/mobile/ListItem">
+      <label class="mblListItemLabel">
+        Solace Tanning Studios &gt; Body @ 11:45</label>
+    </li>
+    <li data-dojo-type="dojox/mobile/ListItem">
+      <label class="mblListItemLabel">
+        Sculpture Nails &amp; Spa &gt; Nails @ 13:00</label>
+    </li>
+  </ul>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="luxForLessView" selected="true" style="height: 100%;" class="luxForLessClass">
+   <h1 label="Book New Appointment" data-dojo-type="dojox/mobile/Heading">
+     <div label="Back" data-dojo-type="dojox/mobile/ToolBarButton" moveTo="userHomepage" arrow="left"></div>
+   </h1>
+   <ul data-dojo-type="dojox/mobile/TabBar" style="height: 90px;">
+     <li label="Lux for Less" data-dojo-type="dojox/mobile/TabBarButton" icon1="lib/custom/pics/price-icon-7334.png" icon2="lib/custom/pics/price-icon-7334.png" selected="true"></li>
+     <li label="Search by Proximity" data-dojo-type="dojox/mobile/TabBarButton" icon1="lib/custom/pics/location-icon-png-4229.png" icon2="lib/custom/pics/location-icon-png-4229.png" moveTo="proximitySearchView"></li>
+     <li label="Search by Provider" data-dojo-type="dojox/mobile/TabBarButton" icon1="lib/custom/pics/idea-icon-12423.png" icon2="lib/custom/pics/idea-icon-12423.png" moveTo="providerSearchView"></li>
+   </ul>
+   <ul data-dojo-type="dojox/mobile/IconMenu" style="border: none; height: 50%; opacity: .5; width: 100%;">
+     <li label="Body" data-dojo-type="dojox/mobile/IconMenuItem"></li>
+     <li label="Face" data-dojo-type="dojox/mobile/IconMenuItem"></li>
+     <li label="Hair" data-dojo-type="dojox/mobile/IconMenuItem"></li>
+     <li label="Hair Removal" data-dojo-type="dojox/mobile/IconMenuItem"></li>
+     <li label="Nails" data-dojo-type="dojox/mobile/IconMenuItem"></li>
+     <li label="Other" data-dojo-type="dojox/mobile/IconMenuItem"></li>
+   </ul>
+   <img src="lib/custom/pics/6background.png" style="position: fixed; width: 100%; bottom: 0px; top: 100px; height: 85%; opacity: .8; z-index: -1;"></img>
+ </div>
+ <div data-dojo-type="dojox/mobile/View" id="proximitySearchView" style="height: 100%;">
+  <h1 label="Search by Proximity" data-dojo-type="dojox/mobile/Heading">
+   <div label="Back" data-dojo-type="dojox/mobile/ToolBarButton" moveTo="userHomepage" arrow="left"></div>
+ </h1>
+  <ul data-dojo-type="dojox/mobile/TabBar" style="height: 92px;">
+  <li label="Lux for Less" data-dojo-type="dojox/mobile/TabBarButton" icon1="lib/custom/pics/price-icon-7334.png" icon2="lib/custom/pics/price-icon-7334.png" moveTo="luxForLessView"></li>
+  <li label="Seach by Proximity" data-dojo-type="dojox/mobile/TabBarButton" icon1="lib/custom/pics/location-icon-png-4229.png" icon2="lib/custom/pics/location-icon-png-4229.png" selected="true"></li>
+  <li label="Search by Provider" data-dojo-type="dojox/mobile/TabBarButton" icon1="lib/custom/pics/idea-icon-12423.png" icon2="lib/custom/pics/idea-icon-12423.png" moveTo="providerSearchView"></li>
+</ul>
+  <div label="Select service type" data-dojo-type="dojox/mobile/RoundRectCategory"></div>
+  <select style="font-size: 14pt; width: 50%;">
+<option value="Body">
+      Body</option>
+    <option value="Face">
+      Face</option>
+    <option value="Hair">
+      Hair</option>
+    <option value="Hair Removal">
+      Hair Removal</option>
+    <option value="Nails">
+      Nails</option>
+    <option value="Other">
+      Other</option>
+  </select>
+  <div label="Enter postal code" data-dojo-type="dojox/mobile/RoundRectCategory"></div>
+  <form>
+   <input placeholder="M5V 2T6" required="true" style="height: 35px; font-size: 14pt;"></input>
+ </form>
+  <ul data-dojo-type="dojox/mobile/RoundRectList"></ul>
+  <div label="Enter desired date &amp;amp; time" data-dojo-type="dojox/mobile/RoundRectCategory"></div>
+  <div data-dojo-type="dojox/mobile/RoundRect">
+<div data-dojo-type="dojox/mobile/ValuePickerDatePicker" style="width: 265px; margin-right: auto; margin-left: auto;"></div>
+   <div data-dojo-type="dojox/mobile/ValuePickerTimePicker" style="width: 220px; margin-right: auto; margin-left: auto; position: relative; top: 20;"></div>
+ </div>
+  <ul data-dojo-type="dojox/mobile/RoundRectList">
+    <li data-dojo-type="dojox/mobile/ListItem" moveTo="appointmentView" noArrow="true" style="text-align: center;">
+      <label class="mblListItemLabel">
+        Search</label>
+    </li>
+  </ul>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="providerSearchView" style="height: 100%;">
+  <h1 label="Search by Provider" data-dojo-type="dojox/mobile/Heading">
+   <div label="Back" data-dojo-type="dojox/mobile/ToolBarButton" arrow="left" moveTo="userHomepage"></div>
+ </h1>
+  <ul data-dojo-type="dojox/mobile/TabBar" style="height: 90px;">
+  <li label="Lux for Less" data-dojo-type="dojox/mobile/TabBarButton" icon1="lib/custom/pics/price-icon-7334.png" icon2="lib/custom/pics/price-icon-7334.png" moveTo="luxForLessView"></li>
+  <li label="Search by Proximity" data-dojo-type="dojox/mobile/TabBarButton" icon1="lib/custom/pics/location-icon-png-4229.png" icon2="lib/custom/pics/location-icon-png-4229.png" moveTo="proximitySearchView"></li>
+  <li label="Search by Provider" data-dojo-type="dojox/mobile/TabBarButton" icon1="lib/custom/pics/idea-icon-12423.png" icon2="idea-icon-12423.png" selected="true"></li>
+</ul>
+  <div label="Enter provider name" data-dojo-type="dojox/mobile/RoundRectCategory"></div>
+  <form>
+   <input placeholder="Provider Name" required="true" style="width: 100%; height: 35px; font-size: 14pt;"></input>
+ </form>
+  <div label="Enter provider postal code" data-dojo-type="dojox/mobile/RoundRectCategory"></div>
+  <form>
+   <input placeholder="M5V 2T6" required="true" style="width: 100%; height: 35px; font-size: 14pt;"></input>
+ </form>
+  <div label="Enter desired date &amp;amp; time" data-dojo-type="dojox/mobile/RoundRectCategory"></div>
+  <div data-dojo-type="dojox/mobile/RoundRect">
+<div data-dojo-type="dojox/mobile/ValuePickerDatePicker" style="width: 265px; margin-right: auto; margin-left: auto;"></div>
+   <div data-dojo-type="dojox/mobile/ValuePickerTimePicker" style="width: 220px; margin-right: auto; margin-left: auto; position: relative; top: 10;"></div>
+ </div>
+  <ul data-dojo-type="dojox/mobile/RoundRectList">
+    <li data-dojo-type="dojox/mobile/ListItem" moveTo="appointmentView" noArrow="true" style="text-align: center;">
+      <label class="mblListItemLabel">
+        Search</label>
+    </li>
+  </ul>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="appointmentView" keepScrollPos="true" style="height: 100%;">
+   <h1 label="Naava" data-dojo-type="dojox/mobile/Heading">
+     <div label="Back" data-dojo-type="dojox/mobile/ToolBarButton" moveTo="proximitySearchView" arrow="left"></div>
+   </h1>
+   <div label="Choose your provider" data-dojo-type="dojox/mobile/EdgeToEdgeCategory"></div>
+   <ul data-dojo-type="dojox/mobile/EdgeToEdgeList">
+     <li data-dojo-type="dojox/mobile/ListItem" moveTo="apptConfirmationView" noArrow="true">
+       <label class="mblListItemLabel">
+         DelMonaco Hair Studio</label>
+     </li>
+     <li data-dojo-type="dojox/mobile/ListItem" moveTo="apptConfirmationView" noArrow="true">
+       <label class="mblListItemLabel">
+         Salon de Livre</label>
+     </li>
+     <li data-dojo-type="dojox/mobile/ListItem" moveTo="apptConfirmationView" noArrow="true">
+       <label class="mblListItemLabel">
+         Tom Michaels Salon Inc</label>
+     </li>
+     <li data-dojo-type="dojox/mobile/ListItem" moveTo="apptConfirmationView" noArrow="true">
+       <label class="mblListItemLabel">
+         Morpheus Hair &amp; Esthetics</label>
+     </li>
+     <li data-dojo-type="dojox/mobile/ListItem" moveTo="apptConfirmationView" noArrow="true">
+       <label class="mblListItemLabel">
+         Civello Queen St. Salon &amp; Spa</label>
+     </li>
+     <li data-dojo-type="dojox/mobile/ListItem" moveTo="apptConfirmationView" noArrow="true">
+       <label class="mblListItemLabel">
+         Beauty Queen Hair &amp; Esthetics</label>
+     </li>
+   </ul>
+ </div>
+ <div data-dojo-type="dojox/mobile/View" id="apptConfirmationView" style="height: 100%;">
+  <h1 label="Confirmation" data-dojo-type="dojox/mobile/Heading">
+<div label="Back" data-dojo-type="dojox/mobile/ToolBarButton" moveTo="appointmentView" sync="false" arrow="left" back="false"></div>
+ </h1>
+  <h2>
+    Service Type: Hair<br></br>
+  </h2>
+  <h2>
+    Provider:<br>
+       Salon de Livre<br>
+         20 Lower Spadina Avenue<br>
+           Toronto, ON M5V 2Z1, Canada<br>
+             +1 416-644-1625<br>
+               salondulivredetoronto.ca<br></br>
+            </br>
+          </br>
+        </br>
+      </br>
+    </br>
+  </h2>
+  <h2>
+    Appointment Date & Time:<br>Sunday, July 23, 2017 @ 15:30<br></h2></h2></h2></h2></h2>
+  <ul data-dojo-type="dojox/mobile/RoundRectList">
+    <li data-dojo-type="dojox/mobile/ListItem" moveTo="confirmedApptView" noArrow="true" style="text-align: center;">
+      <label class="mblListItemLabel">
+        Confirm</label>
+    </li>
+  </ul>
+</h2>
+</div>
+
+</body></html>
